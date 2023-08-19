@@ -12,7 +12,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 public class Helper {
-    public static List<Employee> csvToTutorials(InputStream is) {
+    public static List<Employee> csvToDataBase(InputStream is) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
@@ -33,7 +33,7 @@ public class Helper {
                 );
                 tutorials.add(tutorial);
             }
-            debug(tutorials);
+         //   debug(tutorials);
             return tutorials;
         } catch (IOException e) {
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());

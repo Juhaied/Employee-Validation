@@ -23,6 +23,9 @@ import java.util.logging.FileHandler;
 @Controller
 public class AuthController {
 
+    {
+        System.out.println("Controller");
+    }
     @Autowired
     private UserService userService;
     @Autowired
@@ -93,7 +96,7 @@ public class AuthController {
     @PostMapping("/uploadCsv")
     public String loadCsv(@RequestParam(name = "csvfile") MultipartFile file) {
         try {
-            employeeService.saveAll(Helper.csvToTutorials(file.getInputStream()));
+            employeeService.saveAll(Helper.csvToDataBase(file.getInputStream()));
         } catch (Exception e) {
             return "index";
         }
